@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weight Converter</title>
+</head>
+
+
+
+    <body>
+        <script>
+            function convertKgToLb(kg) {
+                return kg / 0.45359237;
+            }
+
+            function convertLbToKg(lb) {
+                return lb * 0.45359237;
+            }
+
+            let choice;
+            do {
+                choice = prompt("Input 1 for converting kg to lb, or input 2 for converting lb to kg, or input 3 to exit");
+                if (choice !== "1" && choice !== "2" && choice !== "3") {
+                    alert("Please enter a valid choice (1, 2, or 3).");
+                }
+            } while (choice !== "1" && choice !== "2" && choice !== "3");
+
+            if (choice === "1" || choice === "2") {
+                let value;
+                do {
+                    value = prompt("Please enter the numeric value you want to convert:");
+                    if (isNaN(value) || value === "") {
+                        alert("Please enter a valid numeric value.");
+                    }
+                } while (isNaN(value) || value === "");
+
+                value = parseFloat(value);
+
+                switch (choice) {
+                    case "1":
+                        let resultLb = convertKgToLb(value);
+                        document.write("<p>" + value + " kg is equal to " + resultLb.toFixed(3) + " lb.</p>");
+                        break;
+                    case "2":
+                        let resultKg = convertLbToKg(value);
+                        document.write("<p>" + value + " lb is equal to " + resultKg.toFixed(3) + " kg.</p>");
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
